@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Facebook Avatar</title>
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+
+		<div class="container">
+			<h1 class="text-center">Facebok Avatar</h1>
+			<p>Avatar do Usuario do facebook</p>
+			
+			<hr>
+
+			<ul class="list-group list-inline">
+				<li class="list-group-item"><span class="avatar-fb" data-user="4"></span></li>
+				<li class="list-group-item"><span class="avatar-fb" data-user="5"></span></li>		    
+				<li class="list-group-item"><span class="avatar-fb" data-user="6"></span></li>		    
+				<li class="list-group-item"><span class="avatar-fb" data-user="7"></span></li>		    		    
+				<li class="list-group-item"><span class="avatar-fb" data-user="10"></span></li>		    
+				<li class="list-group-item"><span class="avatar-fb" data-user="11"></span></li>		    
+				<li class="list-group-item"><span class="avatar-fb" data-user="13"></span></li>		    		    
+				<li class="list-group-item"><span class="avatar-fb" data-user="1000"></span></li>		    		    
+				<li class="list-group-item"><span class="avatar-fb" data-user="2000"></span></li>		    		    
+				<li class="list-group-item"><span class="avatar-fb" data-user="3000"></span></li>		    		    
+				<li class="list-group-item"><span class="avatar-fb" data-user="4000"></span></li>		    		    				
+			</ul>
+
+			<hr>
+			<h2>Como usar?</h2>		
+
+			<script src="https://gist.github.com/fernandovaller/73d28d6b3e6bc59a3e0788f2f9fef8f1.js"></script>
+
+			<hr>			
+
+		</div>
+
+
+		<!-- jQuery -->
+		<script src="//code.jquery.com/jquery.js"></script>
+		<!-- Bootstrap JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+		
+		<script>
+			jQuery(document).ready(function($) {
+	 				  //obtem avatar do facebook
+	 				  if ($('span').hasClass('avatar-fb')) {
+	 				  	$('.avatar-fb').each(function(id, el) {      
+	 				  		var user = $(el).data('user');
+	 				  		var url = '//graph.facebook.com/' + user + '/picture?width=80&height=80';
+	 				  		$.ajax({
+	 				  			url: url,
+	 				  			cache: true,
+	 				  			processData: false,
+	 				  		}).always(function() {
+	 				  			$(el).parent().html('<img src="'+url+'" class="img-fluid rounded-circle mx-auto" />');
+	 				  		});      
+	 				  	});
+	 				  }
+	 				}); 			
+	 			</script>
+	 		</body>
+	 		</html>
